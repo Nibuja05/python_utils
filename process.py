@@ -100,7 +100,7 @@ class MpCoordinator():
 			else:
 				iterableData, constantData = receiveData
 				try:
-					answer = self.work(index, *(constantData, iterableData) if iterableData is not None else constantData)
+					answer = self.work(index, *([constantData, iterableData] if (iterableData is not None) else [constantData]))
 					sendCon.send(answer)
 				except Exception as e:
 					print("Error in work function:  " + str(e) + "\n")
